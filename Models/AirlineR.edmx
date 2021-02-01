@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AirlineRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Booking_Details">
+          <Key>
+            <PropertyRef Name="TicketNo" />
+          </Key>
+          <Property Name="TicketNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FlightNo" Type="varchar" MaxLength="20" />
+          <Property Name="Fname" Type="varchar" MaxLength="20" />
+          <Property Name="FromPlace" Type="varchar" MaxLength="20" />
+          <Property Name="ToPlace" Type="varchar" MaxLength="20" />
+          <Property Name="DOJ" Type="varchar" MaxLength="20" />
+          <Property Name="Depature" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Cancel">
+          <Key>
+            <PropertyRef Name="CancelNo" />
+          </Key>
+          <Property Name="CancelNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TicketNo" Type="int" />
+          <Property Name="FlightNo" Type="varchar" MaxLength="20" />
+          <Property Name="Fname" Type="varchar" MaxLength="20" />
+          <Property Name="FromPlace" Type="varchar" MaxLength="20" />
+          <Property Name="ToPlace" Type="varchar" MaxLength="20" />
+          <Property Name="DOJ" Type="varchar" MaxLength="20" />
+          <Property Name="Depature" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="20" />
+          <Property Name="Phone" Type="bigint" />
+          <Property Name="Meassge" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Cid" />
+          </Key>
+          <Property Name="Cid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cname" Type="varchar" MaxLength="20" />
+          <Property Name="Email" Type="varchar" MaxLength="20" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="Gender" Type="varchar" MaxLength="20" />
+          <Property Name="Phone" Type="bigint" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Flight">
+          <Key>
+            <PropertyRef Name="FlightNo" />
+          </Key>
+          <Property Name="FlightNo" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Fname" Type="varchar" MaxLength="20" />
+          <Property Name="FromPlace" Type="varchar" MaxLength="20" />
+          <Property Name="ToPlace" Type="varchar" MaxLength="20" />
+          <Property Name="DOJ" Type="varchar" MaxLength="20" />
+          <Property Name="Depature" Type="varchar" MaxLength="20" />
+          <Property Name="Arrival" Type="varchar" MaxLength="20" />
+          <Property Name="Price" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityContainer Name="AirlineRModelStoreContainer">
+          <EntitySet Name="Booking_Details" EntityType="Self.Booking_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cancel" EntityType="Self.Cancel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AirlineRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Booking_Details">
+          <Key>
+            <PropertyRef Name="TicketNo" />
+          </Key>
+          <Property Name="TicketNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FlightNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FromPlace" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ToPlace" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DOJ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Depature" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cancel">
+          <Key>
+            <PropertyRef Name="CancelNo" />
+          </Key>
+          <Property Name="CancelNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TicketNo" Type="Int32" />
+          <Property Name="FlightNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FromPlace" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ToPlace" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DOJ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Depature" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="Int64" />
+          <Property Name="Meassge" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Cid" />
+          </Key>
+          <Property Name="Cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="Int64" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Flight">
+          <Key>
+            <PropertyRef Name="FlightNo" />
+          </Key>
+          <Property Name="FlightNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FromPlace" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ToPlace" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DOJ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Depature" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Arrival" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="AirlineREntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Booking_Details" EntityType="Self.Booking_Details" />
+          <EntitySet Name="Cancels" EntityType="Self.Cancel" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Flights" EntityType="Self.Flight" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AirlineRModelStoreContainer" CdmEntityContainer="AirlineREntities2">
+          <EntitySetMapping Name="Booking_Details">
+            <EntityTypeMapping TypeName="AirlineRModel.Booking_Details">
+              <MappingFragment StoreEntitySet="Booking_Details">
+                <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+                <ScalarProperty Name="FlightNo" ColumnName="FlightNo" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="FromPlace" ColumnName="FromPlace" />
+                <ScalarProperty Name="ToPlace" ColumnName="ToPlace" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="Depature" ColumnName="Depature" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cancels">
+            <EntityTypeMapping TypeName="AirlineRModel.Cancel">
+              <MappingFragment StoreEntitySet="Cancel">
+                <ScalarProperty Name="CancelNo" ColumnName="CancelNo" />
+                <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+                <ScalarProperty Name="FlightNo" ColumnName="FlightNo" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="FromPlace" ColumnName="FromPlace" />
+                <ScalarProperty Name="ToPlace" ColumnName="ToPlace" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="Depature" ColumnName="Depature" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="AirlineRModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Meassge" ColumnName="Meassge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="AirlineRModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Cid" ColumnName="Cid" />
+                <ScalarProperty Name="Cname" ColumnName="Cname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Flights">
+            <EntityTypeMapping TypeName="AirlineRModel.Flight">
+              <MappingFragment StoreEntitySet="Flight">
+                <ScalarProperty Name="FlightNo" ColumnName="FlightNo" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="FromPlace" ColumnName="FromPlace" />
+                <ScalarProperty Name="ToPlace" ColumnName="ToPlace" />
+                <ScalarProperty Name="DOJ" ColumnName="DOJ" />
+                <ScalarProperty Name="Depature" ColumnName="Depature" />
+                <ScalarProperty Name="Arrival" ColumnName="Arrival" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
